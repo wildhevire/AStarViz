@@ -1,0 +1,3 @@
+[submodule "AStarViz-demo"]
+	path = AStarViz-demo
+	url = https://github.com/wildhevire/AStarViz-demo.git
