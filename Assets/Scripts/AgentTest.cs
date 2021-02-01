@@ -17,6 +17,7 @@ namespace Wildhevire.AStarViz
         public Vector2Int startCoord;
         public Vector2Int targetCoord;
         public Animator anim;
+        public CameraZoomer cam;
         private void Awake()
         {
 
@@ -43,6 +44,8 @@ namespace Wildhevire.AStarViz
             if (canMove)
             {
                 anim.SetBool("isMoving", canMove);
+                cam.CameraTarget = transform;
+                cam.canRotateTarget = false;
                 if (path.Count == 0) return;
                 if (pathIndex + 1 > path.Count - 1)
                 {

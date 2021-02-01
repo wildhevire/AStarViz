@@ -25,7 +25,6 @@ namespace Wildhevire.AStarViz
                     }
 				}
 			}
-
 			return selectedNode;
 		}
 
@@ -77,7 +76,6 @@ namespace Wildhevire.AStarViz
 					test.canMove = true;
 					StopAllCoroutines();
 					break;
-					//StopCoroutine(FindPath(start, target));
                 }
 
 				openSet.Remove(current);
@@ -94,8 +92,6 @@ namespace Wildhevire.AStarViz
                     {
                         neighbor.gCost = newCostToNeighbor;
                         neighbor.hCost = Heuristic(neighbor, target);
-						//neighbour.parent = node;
-						//cameFrom.Add(neighbor, current);
 						cameFrom[neighbor] = current;
 
 						neighbor.gameObject.GetComponent<NodeBehaviour>().SetCostProperties();

@@ -7,11 +7,17 @@ namespace Wildhevire.AStarViz
     {
         [SerializeField] private GridProperties gridProperties;
 
-        [Range(0, 2)]   public float moveSpeed = .5f;
-        [Range(0, 10)]  public float smoothFactor = .5f;
-        [Range(0, 10)]  public float mouseSensitivity = .5f;
-        private Vector3 newPosition;
-        private Vector2 newRotation;
+        [Range(0, 2)] public float moveSpeed = .5f;
+        [Range(0, 10)] public float smoothFactor = .5f;
+        [Range(0, 10)] public float mouseSensitivity = .5f;
+
+        [SerializeField] private Vector3 newPosition;
+        [SerializeField] private Vector2 newRotation;
+
+        [SerializeField] private Transform cam;
+        public float turnSpeed = 4.0f;
+
+        private Vector3 offset;
 
         private void Start()
         {
@@ -53,7 +59,6 @@ namespace Wildhevire.AStarViz
                 newRotation.y += Input.GetAxis("Mouse X") * mouseSensitivity;
             }
 
-            transform.eulerAngles = newRotation;
             transform.position = Vector3.Lerp(transform.position, transform.forward + newPosition, Time.deltaTime * smoothFactor);
         }
     }
